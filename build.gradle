@@ -26,23 +26,37 @@ dependencies {
 }
 
 test {
-	useJUnitPlatform()
-	finalizedBy jacocoTestReport
+	useJUnitPlatform()    
+	finalizedBy jacocoTestReport // report is always generated after tests run
 }
 
-jacocoTestReport {     
-	dependsOn test
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
 }
+
 
 jacoco {
-	toolVersion = "0.8.5" 
+    toolVersion = "0.8.5"
     reportsDir = file("build/reports/jacoco")
 }
 
-acocoTestReport {
-	reports {
-		xml.enabled true 
-		csv.enabled false 
-		html.destination file("${buildDir}/jacocoHtml")
-	}
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
 }
+
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
